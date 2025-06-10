@@ -3,8 +3,6 @@ name: Build and Deploy Angular App
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
   build-and-deploy:
@@ -30,11 +28,10 @@ jobs:
         run: ng build --base-href="/LexFix/" --configuration production
 
       - name: Add .nojekyll file
-        run: echo "" > dist/lexfix/.nojekyll
+        run: echo "" > dist/lexfix/browser/.nojekyll
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
-        if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GH_DEPLOY_TOKEN }}
-          publish_dir: ./dist/lexfix
+          publish_dir: ./dist/lexfix/browser
