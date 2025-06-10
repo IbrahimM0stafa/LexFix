@@ -29,6 +29,9 @@ jobs:
       - name: Build Angular app
         run: ng build --base-href="/LexFix/" --configuration production
 
+      - name: Add .nojekyll file
+        run: echo "" > dist/lexfix/.nojekyll
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         if: github.ref == 'refs/heads/main'
