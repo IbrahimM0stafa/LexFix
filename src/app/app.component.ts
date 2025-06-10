@@ -7,7 +7,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   standalone: true,
   imports: [CommonModule],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.css'],
   animations: [
     trigger('fadeInUp', [
       state('in', style({ transform: 'translateY(0)', opacity: 1 })),
