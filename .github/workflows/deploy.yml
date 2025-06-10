@@ -24,7 +24,7 @@ jobs:
       run: npm ci
       
     - name: Build Angular app
-      run: ng build --base-href="/your-repo-name/"
+      run: ng build --base-href="/LexFix/"
       
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
