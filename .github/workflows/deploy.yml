@@ -11,24 +11,27 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-      
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
-        cache: 'npm'
-        
-    - name: Install dependencies
-      run: npm ci
-      
-    - name: Build Angular app
-      run: ng build --base-href="/LexFix/"
-      
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      if: github.ref == 'refs/heads/main'
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist/flutter-app-landing/browser
+      - name: Checkout code
+        uses: actions/checkout@v4  # Updated to v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4  # Updated to v4
+        with:
+          node-version: '20'  # Recommended LTS version (or use your project's version)
+          cache: 'npm'
+
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli  # Explicitly install Angular CLI globally
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Angular app
+        run: ng build --base-href="/LexFix/" --configuration production  # Added production config
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4  # Updated to v4
+        if: github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist/flutter-app-landing/browser  # Double-check this path matches your `ng build` output
