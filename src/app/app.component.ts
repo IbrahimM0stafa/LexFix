@@ -108,13 +108,54 @@ export class AppComponent implements OnInit {
     }
   }
 
-  // Download functionality
+  // Fixed download functionality for GitHub Pages
   downloadApk() {
-    // This will trigger download of your APK file
-    const link = document.createElement('a');
-    link.href = 'assets/app-release.apk';
-    link.download = 'LexFix.apk';
-    link.click();
+    try {
+      // Create a temporary anchor element
+      const link = document.createElement('a');
+      
+      // Get the base URL dynamically for GitHub Pages deployment
+      const baseHref = document.getElementsByTagName('base')[0]?.href || window.location.origin + window.location.pathname;
+      const apkPath = baseHref.endsWith('/') ? 'assets/app-release.apk' : '/assets/app-release.apk';
+      
+      // Set the full URL for GitHub Pages
+      link.href = new URL(apkPath, baseHref).href;
+      
+      // Set download attribute with desired filename
+      link.download = 'LexFix.apk';
+      
+      // Set target to ensure it opens in new tab if download fails
+      link.target = '_blank';
+      
+      // Add to DOM temporarily
+      document.body.appendChild(link);
+      
+      // Trigger click
+      link.click();
+      
+      // Clean up
+      document.body.removeChild(link);
+      
+      console.log('APK download initiated from:', link.href);
+    } catch (error) {
+      console.error('Download failed:', error);
+      // Fallback: try different path variations
+      const fallbackPaths = [
+        '/LexFix/assets/app-release.apk',
+        './assets/app-release.apk',
+        'assets/app-release.apk'
+      ];
+      
+      for (const path of fallbackPaths) {
+        try {
+          window.open(path, '_blank');
+          console.log('Fallback opened:', path);
+          break;
+        } catch (e) {
+          console.error('Fallback failed for path:', path);
+        }
+      }
+    }
   }
 
   // Feature data
