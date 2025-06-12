@@ -113,7 +113,7 @@ export class AppComponent implements OnInit {
     // This will trigger download of your APK file
     const link = document.createElement('a');
     link.href = 'assets/app-release.apk';
-    link.download = 'your-app-name.apk';
+    link.download = 'LexFix.apk';
     link.click();
   }
 

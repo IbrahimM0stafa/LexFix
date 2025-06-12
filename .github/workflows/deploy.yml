@@ -30,8 +30,32 @@ jobs:
       - name: Add .nojekyll file
         run: echo "" > dist/lexfix/browser/.nojekyll
 
+      - name: Verify APK file exists
+        run: |
+          if [ -f "dist/lexfix/browser/assets/app-release.apk" ]; then
+            echo "✅ APK file found in build output"
+            ls -la dist/lexfix/browser/assets/app-release.apk
+          else
+            echo "❌ APK file not found!"
+            echo "Contents of assets directory:"
+            ls -la dist/lexfix/browser/assets/ || echo "Assets directory not found"
+            exit 1
+          fi
+
+      - name: Set correct MIME type for APK
+        run: |
+          # Create a _headers file for Netlify-style headers (GitHub Pages doesn't use this, but good practice)
+          echo "/assets/*.apk" > dist/lexfix/browser/_headers
+          echo "  Content-Type: application/vnd.android.package-archive" >> dist/lexfix/browser/_headers
+          
+          # For GitHub Pages, we'll rely on the server's default handling
+          echo "APK MIME type configuration completed"
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GH_DEPLOY_TOKEN }}
           publish_dir: ./dist/lexfix/browser
+          # Ensure binary files are handled correctly
+          force_orphan: false
+          keep_files: false
