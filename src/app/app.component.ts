@@ -111,10 +111,11 @@ export class AppComponent implements OnInit {
   // Download functionality
   downloadApk() {
     window.open(
-      'https://github.com/IbrahimM0stafa/LexFix/releases/download/v1.0.0/LexFix.apk',
+      'https://github.com/IbrahimM0stafa/LexFix/releases/latest/download/LexFix.apk',
       '_self'
     );
   }
+
 
   // Feature data
   features = [
