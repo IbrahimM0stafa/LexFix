@@ -21,35 +21,37 @@ export class AppComponent implements OnInit {
   // Mobile menu state
   isMobileMenuOpen = false;
 
-  // All screenshots data
+  // All screenshots data (removed caption property)
   allScreenshots = [
-    { src: 'assets/images/1.jpg', alt: 'LexFix Home Screen', caption: 'Welcome Screen' },
-    { src: 'assets/images/2.jpg', alt: 'LexFix Login', caption: 'User Login' },
-    { src: 'assets/images/3.jpg', alt: 'LexFix Dashboard', caption: 'Main Dashboard' },
-    { src: 'assets/images/4.jpg', alt: 'LexFix Reading Game', caption: 'Reading Activities' },
-    { src: 'assets/images/5.jpg', alt: 'LexFix Spelling Game', caption: 'Spelling Practice' },
-    { src: 'assets/images/6.jpg', alt: 'LexFix Progress', caption: 'Progress Tracking' },
-    { src: 'assets/images/7.jpg', alt: 'LexFix Settings', caption: 'App Settings' },
-    { src: 'assets/images/8.jpg', alt: 'LexFix Profile', caption: 'User Profile' },
-    { src: 'assets/images/9.jpg', alt: 'LexFix Games', caption: 'Learning Games' },
-    { src: 'assets/images/10.jpg', alt: 'LexFix Reports', caption: 'Achievement Reports' },
-    { src: 'assets/images/11.jpg', alt: 'LexFix Rewards', caption: 'Rewards System' },
-    { src: 'assets/images/12.jpg', alt: 'LexFix Help', caption: 'Help & Support' },
-    { src: 'assets/images/13.jpg', alt: 'LexFix About', caption: 'About LexFix' },
-    { src: 'assets/images/14.jpg', alt: 'LexFix Home Screen', caption: 'Welcome Screen' },
-    { src: 'assets/images/15.jpg', alt: 'LexFix Login', caption: 'User Login' },
-    { src: 'assets/images/16.jpg', alt: 'LexFix Dashboard', caption: 'Main Dashboard' },
-    { src: 'assets/images/17.jpg', alt: 'LexFix Reading Game', caption: 'Reading Activities' },
-    { src: 'assets/images/18.jpg', alt: 'LexFix Spelling Game', caption: 'Spelling Practice' },
-    { src: 'assets/images/19.jpg', alt: 'LexFix Progress', caption: 'Progress Tracking' },
-    { src: 'assets/images/20.jpg', alt: 'LexFix Settings', caption: 'App Settings' },
-    { src: 'assets/images/21.jpg', alt: 'LexFix Profile', caption: 'User Profile' },
-    { src: 'assets/images/22.jpg', alt: 'LexFix Games', caption: 'Learning Games' },
-    { src: 'assets/images/23.jpg', alt: 'LexFix Reports', caption: 'Achievement Reports' },
-    { src: 'assets/images/24.jpg', alt: 'LexFix Rewards', caption: 'Rewards System' },
-    { src: 'assets/images/25.jpg', alt: 'LexFix Help', caption: 'Help & Support' },
-    { src: 'assets/images/26.jpg', alt: 'LexFix About', caption: 'About LexFix' },
-    { src: 'assets/images/27.jpg', alt: 'LexFix About', caption: 'About LexFix' },
+    { src: 'assets/images/29.jpg', alt: 'LexFix About' },
+    { src: 'assets/images/1.jpg', alt: 'LexFix Home Screen' },
+    { src: 'assets/images/2.jpg', alt: 'LexFix Login' },
+    { src: 'assets/images/3.jpg', alt: 'LexFix Dashboard' },
+    { src: 'assets/images/4.jpg', alt: 'LexFix Reading Game' },
+    { src: 'assets/images/5.jpg', alt: 'LexFix Spelling Game' },
+    { src: 'assets/images/6.jpg', alt: 'LexFix Progress' },
+    { src: 'assets/images/7.jpg', alt: 'LexFix Settings' },
+    { src: 'assets/images/8.jpg', alt: 'LexFix Profile' },
+    { src: 'assets/images/9.jpg', alt: 'LexFix Games' },
+    { src: 'assets/images/10.jpg', alt: 'LexFix Reports' },
+    { src: 'assets/images/11.jpg', alt: 'LexFix Rewards' },
+    { src: 'assets/images/12.jpg', alt: 'LexFix Help' },
+    { src: 'assets/images/13.jpg', alt: 'LexFix About' },
+    { src: 'assets/images/14.jpg', alt: 'LexFix Home Screen' },
+    { src: 'assets/images/15.jpg', alt: 'LexFix Login' },
+    { src: 'assets/images/16.jpg', alt: 'LexFix Dashboard' },
+    { src: 'assets/images/17.jpg', alt: 'LexFix Reading Game' },
+    { src: 'assets/images/18.jpg', alt: 'LexFix Spelling Game' },
+    { src: 'assets/images/19.jpg', alt: 'LexFix Progress' },
+    { src: 'assets/images/20.jpg', alt: 'LexFix Settings' },
+    { src: 'assets/images/21.jpg', alt: 'LexFix Profile' },
+    { src: 'assets/images/22.jpg', alt: 'LexFix Games' },
+    { src: 'assets/images/23.jpg', alt: 'LexFix Reports' },
+    { src: 'assets/images/24.jpg', alt: 'LexFix Rewards' },
+    { src: 'assets/images/25.jpg', alt: 'LexFix Help' },
+    { src: 'assets/images/26.jpg', alt: 'LexFix About' },
+    { src: 'assets/images/27.jpg', alt: 'LexFix About' },
+    { src: 'assets/images/28.jpg', alt: 'LexFix About' },
   ];
 
   ngOnInit() {
@@ -116,7 +118,6 @@ export class AppComponent implements OnInit {
     );
   }
 
-
   // Feature data
   features = [
     {
@@ -169,8 +170,8 @@ export class AppComponent implements OnInit {
 
   // App requirements
   requirements = [
-    'Android 5.0 (API level 21) or higher',
+    'Android 10.0 (API level 21) or higher',
     'Enable "Install from unknown sources"',
-    'At least 50MB free storage'
+    'At least 110MB free storage'
   ];
 }
